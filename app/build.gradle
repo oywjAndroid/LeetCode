@@ -3,13 +3,14 @@ plugins {
 }
 
 android {
-    compileSdkVersion 33
-    buildToolsVersion "33.0.0"
+    //noinspection GradleCompatible
+    compileSdkVersion 28
 
     defaultConfig {
         applicationId "com.allen.leetcode"
         minSdkVersion 19
-        targetSdkVersion 33
+        //noinspection ExpiredTargetSdkVersion
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
 
