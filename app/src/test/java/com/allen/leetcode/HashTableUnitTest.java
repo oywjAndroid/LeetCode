@@ -17,9 +17,18 @@ import java.util.List;
 public class HashTableUnitTest {
 
     @Test
+    public void twoSum1() {
+        int[] nums = {2, 7, 11, 15};
+        int target = 22;
+        System.out.println("nums:" + Arrays.toString(nums) + ",target:" + target);
+        int[] twoSum = TwoSum.twoSum1(nums, target);
+        System.out.println(Arrays.toString(twoSum));
+    }
+
+    @Test
     public void twoSum() {
         int[] nums = {2, 7, 11, 15};
-        int target = 18;
+        int target = 22;
         System.out.println("nums:" + Arrays.toString(nums) + ",target:" + target);
         int[] twoSum = TwoSum.twoSum(nums, target);
         System.out.println(Arrays.toString(twoSum));
@@ -34,10 +43,26 @@ public class HashTableUnitTest {
     }
 
     @Test
-    public void longestConsecutive() {
-        int[] nums = new int[]{100, 4, 200, 1, 3, 2};
+    public void longestConsecutive1() {
+        int[] nums = new int[]{100, 5, 7, 6, 100, 100, 4, 200, 1, 3, 2, 9, 9, 8, 10};
+        //int[] nums = new int[]{0, 3, 7, 2, 5, 8, 4, 6, 0, 1};
+
         System.out.println("nums:" + Arrays.toString(nums));
-        int maxLen = LongestConsecutive.longestConsecutive(nums);
-        System.out.println("maxLen:" + maxLen);
+        long before = System.currentTimeMillis();
+        int maxLen = LongestConsecutive.longestConsecutive1(nums);
+        long after = System.currentTimeMillis();
+        System.out.println("maxLen:" + maxLen + ",run time:" + (after - before));
+    }
+
+
+    @Test
+    public void longestConsecutive2() {
+        int[] nums = new int[]{100, 5, 7, 6, 100, 100, 4, 200, 1, 3, 2, 9, 9, 8, 10};
+        //int[] nums = new int[]{0, 3, 7, 2, 5, 8, 4, 6, 0, 1};
+        System.out.println("nums:" + Arrays.toString(nums));
+        long before = System.currentTimeMillis();
+        int maxLen = LongestConsecutive.longestConsecutive2(nums);
+        long after = System.currentTimeMillis();
+        System.out.println("maxLen:" + maxLen + ",run time:" + (after - before));
     }
 }
