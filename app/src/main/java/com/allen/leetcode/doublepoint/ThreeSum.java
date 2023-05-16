@@ -18,6 +18,7 @@ import java.util.List;
  * nums[1] + nums[2] + nums[4] = 0 + 1 + (-1) = 0 。
  * nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0 。
  * 不同的三元组是 [-1,0,1] 和 [-1,-1,2] 。
+ * <p>
  * 注意，输出的顺序和三元组的顺序并不重要。
  *
  * <p>
@@ -31,11 +32,6 @@ import java.util.List;
  * 输出：[[0,0,0]]
  * 解释：唯一可能的三元组和为 0 。
  * <p>
- * 该题使用暴力枚举法，也可以求出答案，但是时间复杂度将会有O(N^3)
- * <p>
- * 使用排序+双指针解答该题可以降低时间复杂度。
- * <p>
- * 排序后不仅可以更方便处理重复元素，还可以方便查找
  *
  * @Author Allen
  * @Date 05-15-2023 周一 14:47
@@ -47,29 +43,42 @@ public class ThreeSum {
      * [-1, 0, 1, 2, -1, -4]
      */
     public static List<List<Integer>> threeSum(int[] nums) {
-        List<List<Integer>> result = new ArrayList<>();
+        // 1.将数组进行排序
         Arrays.sort(nums);
-        System.out.println("nums:" + Arrays.toString(nums));
-        int n = nums.length;
+        List<List<Integer>> result = new ArrayList<>();
 
-        for (int i = 0; i < n - 2; i++) {
-            int left = i + 1;
-            int right = n - 1;
-            int num = nums[i];// 双指针查找的数据其实就是(0-num)，问题又简化成在有序数组中进行数的查找
+        for (int i = 0; i < nums.length - 2; i++) {
+            if (i == 0 || nums[i] != nums[i - 1]) {//i指针的去重
+                int num = nums[i];
+                int left = i + 1;
+                int right = nums.length - 1;
 
-            while (left < right) {
-                int sum = num + nums[left] + nums[right];
-                if (sum == 0) {
-                    result.add(Arrays.asList(num, nums[left], nums[right]));
-                    left++;
-                    right--;
-                } else if (sum < 0) {
-                    right--;
-                } else {
-                    left++;
+                while (left < right) {
+                    int sum = num + nums[left] + nums[right];
+                    if (sum == 0) {
+                        result.add(Arrays.asList(num, nums[left], nums[right]));
+
+                        // 左指针去重
+                        while (left < right && nums[left] == nums[left + 1]) {
+                            left++;
+                        }
+
+                        // 右指针去重
+                        while (left < right && nums[right] == nums[right - 1]) {
+                            right--;
+                        }
+                        left++;
+                        right--;
+                    } else if (sum < 0) {
+                        left++;
+                    } else {
+                        right--;
+                    }
                 }
             }
+
         }
+
         return result;
     }
 }

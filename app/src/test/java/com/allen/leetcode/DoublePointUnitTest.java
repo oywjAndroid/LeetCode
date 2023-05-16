@@ -18,10 +18,11 @@ import java.util.stream.Collectors;
  *     desc   :
  *     version: 1.0
  * </pre>
-import java.util.List;
-import java.util.stream.Collectors;
-
-/**
+ * import java.util.List;
+ * import java.util.stream.Collectors;
+ * <p>
+ * /**
+ *
  * @Description TODO
  * @Author Allen
  * @Date 05-15-2023 周一 13:53
@@ -54,10 +55,12 @@ public class DoublePointUnitTest {
 
     @Test
     public void threeNum() {
-        int[] nums = new int[]{-1, 0, 1, 2, -1, -4};
+        //int[] nums = new int[]{-1, 0, 1, 2, -1, -4};
+        //int[] nums = new int[]{0, 1, 1};
+        int[] nums = new int[]{0,0,0};
         System.out.println("nums:" + Arrays.toString(nums));
         List<List<Integer>> threeSum = ThreeSum.threeSum(nums);
-        String resultString = threeSum.stream().map(Object::toString).collect(Collectors.joining(", "));
-        System.out.println(resultString);
+        String resultString = threeSum.stream().map(Object::toString).collect(Collectors.joining(","));
+        System.out.println("[" + resultString + "]");
     }
 }
