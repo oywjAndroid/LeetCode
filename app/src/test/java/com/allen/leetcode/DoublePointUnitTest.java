@@ -3,6 +3,7 @@ package com.allen.leetcode;
 import com.allen.leetcode.doublepoint.MoveZeroes;
 import com.allen.leetcode.doublepoint.MaxArea;
 import com.allen.leetcode.doublepoint.ThreeSum;
+import com.allen.leetcode.doublepoint.Trap;
 
 import org.junit.Test;
 
@@ -57,10 +58,19 @@ public class DoublePointUnitTest {
     public void threeNum() {
         //int[] nums = new int[]{-1, 0, 1, 2, -1, -4};
         //int[] nums = new int[]{0, 1, 1};
-        int[] nums = new int[]{0,0,0};
+        int[] nums = new int[]{0, 0, 0};
         System.out.println("nums:" + Arrays.toString(nums));
         List<List<Integer>> threeSum = ThreeSum.threeSum(nums);
         String resultString = threeSum.stream().map(Object::toString).collect(Collectors.joining(","));
         System.out.println("[" + resultString + "]");
+    }
+
+    @Test
+    public void trap() {
+        //int[] nums = new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
+        int[] nums = new int[]{4,2,0,3,2,5};
+        System.out.println("nums:" + Arrays.toString(nums));
+        int trap = Trap.trap(nums);
+        System.out.println("trap:" + trap);
     }
 }
