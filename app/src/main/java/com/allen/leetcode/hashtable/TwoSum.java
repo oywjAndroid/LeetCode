@@ -12,9 +12,6 @@ import java.util.Map;
  * 输出：[0,1]
  * 解释：因为 nums[0] + nums[1] == 9 ，返回 [0, 1] 。
  * <p>
- * 来源：力扣（LeetCode）
- * 链接：https://leetcode.cn/problems/two-sum
- * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  *
  * @Author Allen
  * @Date 05-11-2023 周四 13:50
