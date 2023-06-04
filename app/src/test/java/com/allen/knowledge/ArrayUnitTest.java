@@ -3,6 +3,7 @@ package com.allen.knowledge;
 import com.allen.knowledge.array.Array;
 import com.allen.knowledge.array.DiffArray;
 import com.allen.knowledge.array.NumberArray;
+import com.allen.knowledge.array.SlidingWindow;
 
 import org.junit.Test;
 
@@ -60,6 +61,33 @@ public class ArrayUnitTest {
 
         diffArray.increment(0, 4, 5);
         System.out.println("[0,4] + 5 = " + Arrays.toString(diffArray.getNumbers()));
+    }
+
+    @Test
+    public void testSlidingWindow() {
+        String s = "ADOBECODEBANC";
+        String t = "ABC";
+        //String s = "a";
+        //String t = "a";
+        System.out.println("Input: s = " + s + ",t = " + t);
+        SlidingWindow slidingWindow = new SlidingWindow();
+        String minString = slidingWindow.minWindow(s, t);
+        System.out.println("minString = " + minString);
+    }
+
+    @Test
+    public void testCheckInclusion() {
+        //String s1 = "ab";
+        //String s2 = "eidbaooo";
+        String s1 = "ab";
+        String s2 = "eidboaoo";
+
+        //String s1 = "abcdxabcde";
+        //String s2 = "abcdeabcdx";
+        System.out.println("Input: s1 = " + s1 + ",s2 = " + s2);
+        SlidingWindow slidingWindow = new SlidingWindow();
+        boolean isInclusion = slidingWindow.checkInclusion(s1, s2);
+        System.out.println("isInclusion = " + isInclusion);
     }
 
 }
