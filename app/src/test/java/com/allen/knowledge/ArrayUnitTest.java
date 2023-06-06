@@ -2,12 +2,14 @@ package com.allen.knowledge;
 
 import com.allen.knowledge.array.Array;
 import com.allen.knowledge.array.DiffArray;
+import com.allen.knowledge.array.MatrixArray;
 import com.allen.knowledge.array.NumberArray;
 import com.allen.knowledge.array.SlidingWindow;
 
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * @Description TODO
@@ -88,6 +90,58 @@ public class ArrayUnitTest {
         SlidingWindow slidingWindow = new SlidingWindow();
         boolean isInclusion = slidingWindow.checkInclusion(s1, s2);
         System.out.println("isInclusion = " + isInclusion);
+    }
+
+    @Test
+    public void testFindAnagrams() {
+        //String s = "cbaebabacd";
+        //String p = "abc";
+        String s = "abab";
+        String p = "ab";
+        System.out.println("s = " + s + ",p = " + p);
+        SlidingWindow slidingWindow = new SlidingWindow();
+        List<Integer> anagrams = slidingWindow.findAnagrams(s, p);
+        System.out.println("anagrams = " + Arrays.toString(anagrams.toArray()));
+    }
+
+
+    @Test
+    public void testLengthOfLongestSubstring() {
+        //String s = "abcabcbb";
+        //String s = "bbbbb";
+        String s = "pwwkew";
+        System.out.println("s = " + s);
+        SlidingWindow window = new SlidingWindow();
+        int length = window.lengthOfLongestSubstring(s);
+        System.out.println("length = " + length);
+    }
+
+    @Test
+    public void testClockwiseRotation() {
+        int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        for (int[] ints : matrix) {
+            System.out.println(Arrays.toString(ints));
+        }
+        System.out.println("---------");
+        MatrixArray matrixArray = new MatrixArray();
+        matrixArray.clockwiseRotation(matrix);
+        for (int[] ints : matrix) {
+            System.out.println(Arrays.toString(ints));
+        }
+    }
+
+    @Test
+    public void testAnticlockwiseRotation(){
+        int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        for (int[] ints : matrix) {
+            System.out.println(Arrays.toString(ints));
+        }
+        System.out.println("---------");
+        MatrixArray matrixArray = new MatrixArray();
+        matrixArray.anticlockwiseRotation(matrix);
+        for (int[] ints : matrix) {
+            System.out.println(Arrays.toString(ints));
+        }
     }
 
 }
