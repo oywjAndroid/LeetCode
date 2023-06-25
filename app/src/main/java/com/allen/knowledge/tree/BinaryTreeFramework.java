@@ -8,7 +8,6 @@ package com.allen.knowledge.tree;
 public class BinaryTreeFramework {
 
     public static class MaxDepth {
-
         // 记录最大深度
         int maxDepth = 0;
         // 记录遍历到的节点深度
@@ -19,35 +18,25 @@ public class BinaryTreeFramework {
             return maxDepth;
         }
 
-
-        /**
-         * depth + 1
-         * root
-         * <p>
-         * depth + 1
-         * root.left
-         */
-
         private <T> void traverse(TreeNode<T> root) {
             if (root == null) {
                 return;
             }
 
             depth++;
+            if (root.getLeftChild() != null) {
+                traverse(root.getLeftChild());
+            }
 
             if (root.getLeftChild() == null && root.getRightChild() == null) {
                 maxDepth = Math.max(maxDepth, depth);
             }
 
-            if (root.getLeftChild() != null)
-                traverse(root.getLeftChild());
-
-            if (root.getRightChild() != null)
+            if (root.getRightChild() != null) {
                 traverse(root.getRightChild());
+            }
             depth--;
         }
-
-
     }
 
 

@@ -12,12 +12,12 @@ public class BinaryTreeUnitTest {
 
     /**
      * 示例二叉树：
-     * A
-     * /   \
-     * B     D
-     * \   /
-     * F I
-     * /
+     *     A
+     *   /   \
+     *  B     D
+     *   \   /
+     *   F  I
+     *  /
      * L
      */
     @Test
@@ -35,7 +35,6 @@ public class BinaryTreeUnitTest {
         D.setLeftChild(I);
 
         BinaryTree binaryTree = new BinaryTree();
-
         System.out.println("---前序遍历---");
         binaryTree.preTraverse(A);
 
