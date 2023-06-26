@@ -26,7 +26,24 @@ public class InvertTree {
 
 
     public TreeNode<Integer> invertTree(TreeNode<Integer> root){
-        return null;
+        traverse(root);
+        return root;
+    }
+
+    private void traverse(TreeNode<Integer> root){
+        if (root == null){
+            return;
+        }
+
+        traverse(root.getLeftChild());
+
+        TreeNode<Integer> temp = root.getLeftChild();
+        root.setLeftChild(root.getRightChild());
+        root.setRightChild(temp);
+
+        traverse(root.getRightChild());
+
+
     }
 
 }

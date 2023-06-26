@@ -3,6 +3,7 @@ package com.allen.knowledge;
 import com.allen.knowledge.tree.BinaryTree;
 import com.allen.knowledge.tree.BinaryTreeFramework;
 import com.allen.knowledge.tree.TreeNode;
+import com.allen.knowledge.tree.practice.InvertTree;
 
 import org.junit.Test;
 
@@ -12,12 +13,12 @@ public class BinaryTreeUnitTest {
 
     /**
      * 示例二叉树：
-     *     A
-     *   /   \
-     *  B     D
-     *   \   /
-     *   F  I
-     *  /
+     * A
+     * /   \
+     * B     D
+     * \   /
+     * F  I
+     * /
      * L
      */
     @Test
@@ -61,6 +62,40 @@ public class BinaryTreeUnitTest {
         BinaryTreeFramework.MaxDepth maxDepth = new BinaryTreeFramework.MaxDepth();
         int maxDepthVal = maxDepth.getMaxDepth(root);
         System.out.println("maxDepthVal = " + maxDepthVal);
+    }
+
+    @Test
+    public void testInvertTree() {
+        TreeNode<Integer> root = new TreeNode<>(4);
+        TreeNode<Integer> rootLeftChild = new TreeNode<>(2);
+        TreeNode<Integer> rootRightChild = new TreeNode<>(7);
+        TreeNode<Integer> leftChildLeft = new TreeNode<>(1);
+        TreeNode<Integer> leftChildRight = new TreeNode<>(3);
+        TreeNode<Integer> rightChildLeft = new TreeNode<>(6);
+        TreeNode<Integer> rightChildRight = new TreeNode<>(9);
+
+        root.setLeftChild(rootLeftChild);
+        root.setRightChild(rootRightChild);
+        rootLeftChild.setLeftChild(leftChildLeft);
+        rootLeftChild.setRightChild(leftChildRight);
+        rootRightChild.setLeftChild(rightChildLeft);
+        rootRightChild.setRightChild(rightChildRight);
+
+        InvertTree invertTree = new InvertTree();
+        printBinaryTree(root);
+        System.out.println();
+        invertTree.invertTree(root);
+        printBinaryTree(root);
+    }
+
+
+    public <T> void printBinaryTree(TreeNode<T> treeNode){
+        if (treeNode == null){
+            return;
+        }
+        System.out.print(treeNode.getData()+" ");
+        printBinaryTree(treeNode.getLeftChild());
+        printBinaryTree(treeNode.getRightChild());
     }
 
 
