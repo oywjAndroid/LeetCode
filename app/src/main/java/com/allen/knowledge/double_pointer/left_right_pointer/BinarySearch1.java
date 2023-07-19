@@ -1,4 +1,4 @@
-package com.allen.knowledge.double_pointer;
+package com.allen.knowledge.double_pointer.left_right_pointer;
 
 /**
  * 寻找一个数，基本的二分搜索

@@ -1,4 +1,4 @@
-package com.allen.knowledge.double_pointer;
+package com.allen.knowledge.double_pointer.left_right_pointer;
 
 /**
  * 右边界二分搜索

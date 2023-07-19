@@ -1,8 +1,8 @@
 package com.allen.knowledge;
 
-import com.allen.knowledge.double_pointer.BinarySearch1;
-import com.allen.knowledge.double_pointer.LeftBoundBinarySearch;
-import com.allen.knowledge.double_pointer.RightBoundBinarySearch;
+import com.allen.knowledge.double_pointer.left_right_pointer.BinarySearch1;
+import com.allen.knowledge.double_pointer.left_right_pointer.LeftBoundBinarySearch;
+import com.allen.knowledge.double_pointer.left_right_pointer.RightBoundBinarySearch;
 
 import org.junit.Test;
 
