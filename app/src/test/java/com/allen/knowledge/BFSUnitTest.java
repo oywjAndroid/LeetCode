@@ -29,7 +29,10 @@ public class BFSUnitTest {
 
     @Test
     public void runOpenLock(){
-        OpenLock openLock = new OpenLock();
-        openLock.openLock("1928");
+//        OpenLock openLock = new OpenLock();
+//        openLock.openLock("1928");
+        byte a = (byte) 0xE6;
+        System.out.println("a="+(a&0xFF));
+
     }
 }
