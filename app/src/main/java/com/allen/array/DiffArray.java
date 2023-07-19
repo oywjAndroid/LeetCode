@@ -1,4 +1,4 @@
-package com.allen.knowledge.array;
+package com.allen.array;
 
 /**
  * 差分数组

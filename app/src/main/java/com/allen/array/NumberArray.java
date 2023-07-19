@@ -1,4 +1,4 @@
-package com.allen.knowledge.array;
+package com.allen.array;
 
 /**
  * 给定一个整数numbers,求出数组从 i~j (i<=j)范围内元素的总和，包含i,j两点。

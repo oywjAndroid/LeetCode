@@ -1,13 +1,11 @@
-package com.allen.knowledge.array;
+package com.allen.array;
 
 import android.annotation.SuppressLint;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * 滑动窗口，快慢指针的应用场景，适用于解决子串问题。

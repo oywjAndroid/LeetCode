@@ -1,10 +1,10 @@
 package com.allen.knowledge;
 
-import com.allen.knowledge.array.Array;
-import com.allen.knowledge.array.DiffArray;
-import com.allen.knowledge.array.MatrixArray;
-import com.allen.knowledge.array.NumberArray;
-import com.allen.knowledge.array.SlidingWindow;
+import com.allen.array.Array;
+import com.allen.array.DiffArray;
+import com.allen.array.MatrixArray;
+import com.allen.array.NumberArray;
+import com.allen.array.SlidingWindow;
 
 import org.junit.Test;
 
