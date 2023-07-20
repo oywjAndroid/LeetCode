@@ -1,4 +1,4 @@
-package com.allen.array;
+package com.allen.knowledge.array;
 
 /**
  * 数组算法涉及到的常见技巧代码

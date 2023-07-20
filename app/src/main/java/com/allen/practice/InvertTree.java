@@ -1,4 +1,4 @@
-package com.allen.knowledge.tree.practice;
+package com.allen.practice;
 
 import com.allen.knowledge.tree.TreeNode;
 

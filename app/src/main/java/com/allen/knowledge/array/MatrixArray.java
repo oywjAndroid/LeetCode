@@ -1,4 +1,4 @@
-package com.allen.array;
+package com.allen.knowledge.array;
 
 /**
  * 二维数组（矩阵）的花式遍历

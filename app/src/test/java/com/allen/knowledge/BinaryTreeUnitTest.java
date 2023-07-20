@@ -3,7 +3,7 @@ package com.allen.knowledge;
 import com.allen.knowledge.tree.BinaryTree;
 import com.allen.knowledge.tree.BinaryTreeFramework;
 import com.allen.knowledge.tree.TreeNode;
-import com.allen.knowledge.tree.practice.InvertTree;
+import com.allen.practice.InvertTree;
 
 import org.junit.Test;
 
