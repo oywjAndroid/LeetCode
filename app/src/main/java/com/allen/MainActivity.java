@@ -1,7 +1,9 @@
-package com.allen.leetcode;
+package com.allen;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.allen.leetcode.R;
 
 public class MainActivity extends AppCompatActivity {
 

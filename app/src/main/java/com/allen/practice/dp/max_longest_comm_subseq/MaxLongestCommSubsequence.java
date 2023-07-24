@@ -8,5 +8,7 @@ package com.allen.practice.dp.max_longest_comm_subseq;
  * 
  *
  */
-class MaxLongestCommSubsequence {
+public class MaxLongestCommSubsequence {
+
+    public int longestCommSubsequence(String str1,String str){}
 }
