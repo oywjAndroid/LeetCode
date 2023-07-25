@@ -3,6 +3,7 @@ package com.allen.practice.dp;
 import com.allen.practice.dp.length_lis.LengthOfLIS01;
 import com.allen.practice.dp.length_lis.LengthOfLIS02;
 import com.allen.practice.dp.max_envelopes.MaxEnvelopes;
+import com.allen.practice.dp.max_longest_comm_subseq.MaxLongestCommSubsequence;
 import com.allen.practice.dp.max_sub_array.MaxSubArray;
 
 import org.junit.Test;
@@ -48,6 +49,22 @@ public class DpUnitTest {
         //int[] numbs = {-2,1};
         int maxSum = new MaxSubArray().maxSubArray(numbs);
         System.out.println("maxSum=" + maxSum);
+    }
+
+    @Test
+    public void runMaxLongestCommSubsequence() {
+//        String str1 = "abcde";
+//        String str2 = "aceb";
+
+//        String str1 = "babcde";
+//        String str2 = "abce";
+
+        // ?
+        String str2 = "dbdksdkfnalkdfa";
+        String str1 = "sdkls";
+
+        int longestCommSubsequence = new MaxLongestCommSubsequence().longestCommSubsequence(str1, str2);
+        System.out.println("longestCommSubsequence=" + longestCommSubsequence);
     }
 
 
