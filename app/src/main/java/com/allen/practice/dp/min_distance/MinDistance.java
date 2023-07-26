@@ -55,6 +55,20 @@ public class MinDistance {
      * 状态：增、删、改（这三个动作）错误
      * dp函数： String dp(int action)
      *
+     * 1、dp函数的定义：dp[i][j] = str1[0...i] str2[0...j]的最少操作数 (假设)
+     *
+     *   h o r s e
+     * r
+     * o       (i-1,j-1) (i-1,j)
+     * s       (i,j-1)   (i,j)
+     *
+     * dp[i-1][j-1] = hors ->   ro 最少操作数 3
+     * dp[i-1][j]   = hourse -> ro 最少操作数 5
+     * dp[i][j-1]   = hors ->   ros 最少操作数 2
+     * dp[i][j]   = horse ->   ros 最少操作数 3
+     *
+     * dp[0][0] = h -> r 最少操作数
+     *
      */
     public int minDistance(String word1,String word2){
 
