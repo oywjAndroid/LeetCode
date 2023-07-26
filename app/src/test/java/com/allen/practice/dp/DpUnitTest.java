@@ -60,8 +60,14 @@ public class DpUnitTest {
 //        String str2 = "abce";
 
         // ?
-        String str2 = "dbdksdkfnalkdfa";
-        String str1 = "sdkls";
+        //String str2 = "dbdksdkfnalkdfa";
+        //String str1 = "sdkls";
+
+        String str1 = "bsbininm";
+        String str2 = "jmjkbkjkv";
+
+//        int longestCommSubsequence = new MaxLongestCommSubsequence().longestCommSubsequence_error(str1, str2);
+//        System.out.println("longestCommSubsequence=" + longestCommSubsequence);
 
         int longestCommSubsequence = new MaxLongestCommSubsequence().longestCommSubsequence(str1, str2);
         System.out.println("longestCommSubsequence=" + longestCommSubsequence);
