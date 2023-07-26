@@ -5,6 +5,7 @@ import com.allen.practice.dp.length_lis.LengthOfLIS02;
 import com.allen.practice.dp.max_envelopes.MaxEnvelopes;
 import com.allen.practice.dp.max_longest_comm_subseq.MaxLongestCommSubsequence;
 import com.allen.practice.dp.max_sub_array.MaxSubArray;
+import com.allen.practice.dp.min_distance.MinDistance;
 
 import org.junit.Test;
 
@@ -71,6 +72,17 @@ public class DpUnitTest {
 
         int longestCommSubsequence = new MaxLongestCommSubsequence().longestCommSubsequence(str1, str2);
         System.out.println("longestCommSubsequence=" + longestCommSubsequence);
+    }
+
+    @Test
+    public void runMinDistance() {
+//        String word1 = "horse";
+//        String word2 = "ros";
+       String word1 = "intention";
+       String word2 = "execution";
+
+        int minDistance = new MinDistance().minDistance(word1, word2);
+        System.out.println("minDistance=" + minDistance);
     }
 
 
