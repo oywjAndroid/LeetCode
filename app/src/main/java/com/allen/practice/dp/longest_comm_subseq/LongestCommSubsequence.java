@@ -1,4 +1,4 @@
-package com.allen.practice.dp.max_longest_comm_subseq;
+package com.allen.practice.dp.longest_comm_subseq;
 
 import java.util.Arrays;
 
@@ -65,7 +65,7 @@ import java.util.Arrays;
  * --
  * CORRECT --> dp[0][...]、dp[...][0]
  */
-public class MaxLongestCommSubsequence {
+public class LongestCommSubsequence {
 
     public int longestCommSubsequence_error(String str1, String str2) {
         if (str1 == null || str2 == null) {

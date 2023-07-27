@@ -3,7 +3,7 @@ package com.allen.practice.dp;
 import com.allen.practice.dp.length_lis.LengthOfLIS01;
 import com.allen.practice.dp.length_lis.LengthOfLIS02;
 import com.allen.practice.dp.max_envelopes.MaxEnvelopes;
-import com.allen.practice.dp.max_longest_comm_subseq.MaxLongestCommSubsequence;
+import com.allen.practice.dp.longest_comm_subseq.LongestCommSubsequence;
 import com.allen.practice.dp.max_sub_array.MaxSubArray;
 import com.allen.practice.dp.min_distance.MinDistance;
 
@@ -70,7 +70,7 @@ public class DpUnitTest {
 //        int longestCommSubsequence = new MaxLongestCommSubsequence().longestCommSubsequence_error(str1, str2);
 //        System.out.println("longestCommSubsequence=" + longestCommSubsequence);
 
-        int longestCommSubsequence = new MaxLongestCommSubsequence().longestCommSubsequence(str1, str2);
+        int longestCommSubsequence = new LongestCommSubsequence().longestCommSubsequence(str1, str2);
         System.out.println("longestCommSubsequence=" + longestCommSubsequence);
     }
 
