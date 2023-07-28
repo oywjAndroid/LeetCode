@@ -2,6 +2,7 @@ package com.allen.practice.dp;
 
 import com.allen.practice.dp.length_lis.LengthOfLIS01;
 import com.allen.practice.dp.length_lis.LengthOfLIS02;
+import com.allen.practice.dp.longest_palindrome_subseq.LongestPalindromeSubsequence;
 import com.allen.practice.dp.max_envelopes.MaxEnvelopes;
 import com.allen.practice.dp.longest_comm_subseq.LongestCommSubsequence;
 import com.allen.practice.dp.max_sub_array.MaxSubArray;
@@ -78,11 +79,19 @@ public class DpUnitTest {
     public void runMinDistance() {
 //        String word1 = "horse";
 //        String word2 = "ros";
-       String word1 = "intention";
-       String word2 = "execution";
+        String word1 = "intention";
+        String word2 = "execution";
 
         int minDistance = new MinDistance().minDistance(word1, word2);
         System.out.println("minDistance=" + minDistance);
+    }
+
+    @Test
+    public void runLongestPalindromeSubsequence() {
+        //String s = "bbbab";
+        String s = "cbbd";
+        int longestPalindromeSubsequence = new LongestPalindromeSubsequence().longestPalindromeSubsequence(s);
+        System.out.println("longestPalindromeSubsequence = "+longestPalindromeSubsequence);
     }
 
 
