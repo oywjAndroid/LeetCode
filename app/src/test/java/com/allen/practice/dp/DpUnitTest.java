@@ -7,6 +7,7 @@ import com.allen.practice.dp.max_envelopes.MaxEnvelopes;
 import com.allen.practice.dp.longest_comm_subseq.LongestCommSubsequence;
 import com.allen.practice.dp.max_sub_array.MaxSubArray;
 import com.allen.practice.dp.min_distance.MinDistance;
+import com.allen.practice.dp.min_insertions.MinInsertions;
 
 import org.junit.Test;
 
@@ -91,7 +92,14 @@ public class DpUnitTest {
         //String s = "bbbab";
         String s = "cbbd";
         int longestPalindromeSubsequence = new LongestPalindromeSubsequence().longestPalindromeSubsequence(s);
-        System.out.println("longestPalindromeSubsequence = "+longestPalindromeSubsequence);
+        System.out.println("longestPalindromeSubsequence = " + longestPalindromeSubsequence);
+    }
+
+    @Test
+    public void runMinInsertions() {
+        String s = "abceafeeffe";
+        int minInsertions = new MinInsertions().minInsertions(s);
+        System.out.println("minInsertions=" + minInsertions);
     }
 
 

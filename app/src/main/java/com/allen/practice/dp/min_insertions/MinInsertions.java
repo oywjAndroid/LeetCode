@@ -13,24 +13,41 @@ package com.allen.practice.dp.min_insertions;
  * dp(i,j) = dp(i+1,j-1) = x
  * base case: dp(i,j) -> i==j = 0
  * if s[i] == s[j]
- * return x;
+ *  dp[i][j] = dp[i+1][j-1];
  * eles
- * return x+2; // s = "ab" 其实只需要插入a就行，
+ *  //return x+2; // s = "ab" 其实只需要插入a就行，
+ *  dp[i][j] = Math.min(dp[i+1][j],dp[i][j-1]) + 1
  * <p>
  * abcbb -> abbcbba 在i位置插入s[j]，在j位置插入s[i] 需要+2
  * ab
  * <p>
- * ---- 0  1  2  3  4  j
- * i	a  b  c  e  a
- * 0	0  1  2  3  ?
- * 1	   0  1  2  3
- * 2	      0  1  2
- * 3	         0  1
- * 4	            0
+ * --- 0  1  2  3  4  j
+ * i   a  b  c  e  a
+ * 0   0  1  2  3  ?
+ * 1	  0  1  2  3
+ * 2	     0  1  2
+ * 3	        0  1
+ * 4	           0
  */
 public class MinInsertions {
 
     public int minInsertions(String s) {
-        return 0;
+        if (s == null || s.equals("")) {
+            return 0;
+        }
+        int n = s.length();
+        int[][] dp = new int[n][n];
+
+        for (int i = n - 1; i >= 0; i--) {
+            for (int j = i + 1; j < n; j++) {
+                if (s.charAt(i) == s.charAt(j)) {
+                    dp[i][j] = dp[i + 1][j - 1];
+                } else {
+                    dp[i][j] = Math.min(dp[i][j - 1], dp[i + 1][j]) + 1;
+                }
+            }
+        }
+
+        return dp[0][n - 1];
     }
 }
