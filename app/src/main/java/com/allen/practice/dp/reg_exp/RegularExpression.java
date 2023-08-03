@@ -29,31 +29,66 @@ package com.allen.practice.dp.reg_exp;
  */
 public class RegularExpression {
 
+//    public boolean isMatch(String s, String p) {
+//        int i = 0;
+//        int j = 0;
+//
+//        while (i < s.length() && j < p.length()) {
+//            if (s.charAt(i) == p.charAt(j) || p.charAt(j) == '.') {// 匹配
+//                if (j + 1 < p.length() && p.charAt(j + 1) == '*') {
+//                    // 存在'*'通配符，能够匹配0次或多次
+//                    // aaa  a*
+//                    i++;
+//                } else {
+//                    // 不存在'*'通配符，只能匹配一次
+//                    i++;
+//                    j++;
+//                }
+//            } else { // 不匹配
+//                if (j + 1 < p.length() && p.charAt(j + 1) == '*') {
+//                    // 存在'*'通配符，只能匹配0次
+//                } else {
+//                    // 无'*'通配符，匹配结束
+//                    return false;
+//                }
+//            }
+//        }
+//
+//        return i == j;
+//    }
+
+
+    /**
+     * demo 1
+     * - a a
+     * a
+     *
+     * s[i] == p[j](a=a)
+     * j >= p.length && i < s.length 匹配不成功
+     *
+     * demo 2
+     * - a a
+     * a
+     * .
+     * i >= s.length && j >= p.length 匹配成功
+     *
+     * demo 3
+     * - a a
+     * b
+     * *
+     * a
+     * *   ?
+     *
+     *
+     * dp(i,j) => s[0...i] 和 p[0...j] 是否匹配成功
+     * 选择：模版字符串中的字符，其实分为两类：* 和 !*
+     *
+     */
     public boolean isMatch(String s, String p) {
-        int i = 0;
-        int j = 0;
+        // 1.状态:i,j分别为s,p的指针
 
-        while (i < s.length() && j < p.length()) {
-            if (s.charAt(i) == p.charAt(j) || p.charAt(j) == '.') {// 匹配
-                if (j + 1 < p.length() && p.charAt(j + 1) == '*') {
-                    // 存在'*'通配符，能够匹配0次或多次
-                    // aaa  a*
-                    i++;
-                } else {
-                    // 不存在'*'通配符，只能匹配一次
-                    i++;
-                    j++;
-                }
-            } else { // 不匹配
-                if (j + 1 < p.length() && p.charAt(j + 1) == '*') {
-                    // 存在'*'通配符，只能匹配0次
-                } else {
-                    // 无'*'通配符，匹配结束
-                    return false;
-                }
-            }
-        }
 
-        return i == j;
+        return false;
     }
+
 }
