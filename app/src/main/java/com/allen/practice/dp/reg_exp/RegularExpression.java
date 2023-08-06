@@ -62,33 +62,72 @@ public class RegularExpression {
      * demo 1
      * - a a
      * a
-     *
+     * <p>
      * s[i] == p[j](a=a)
      * j >= p.length && i < s.length 匹配不成功
-     *
+     * <p>
      * demo 2
      * - a a
      * a
      * .
      * i >= s.length && j >= p.length 匹配成功
-     *
+     * <p>
      * demo 3
      * - a a
      * b
      * *
      * a
      * *   ?
-     *
-     *
+     * <p>
+     * <p>
      * dp(i,j) => s[0...i] 和 p[0...j] 是否匹配成功
      * 选择：模版字符串中的字符，其实分为两类：* 和 !
-     *
      */
     public boolean isMatch(String s, String p) {
         // 1.状态:i,j分别为s,p的指针
-
-
-        return false;
+        return dp(s, 0, p, 0);
     }
+
+    private boolean dp(String s, int i, String p, int j) {
+        int m = s.length();
+        int n = p.length();
+
+        // base case
+        if (j == n) {
+            return i == m;
+        }
+        // s="a" p="ab*c*"
+        if (i == m) {
+            if ((n - j) % 2 == 1) {
+                return false;
+            }
+
+            for (; j + 1 < n; j += 2) {
+                if (p.charAt(j + 1) != '*') {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        System.out.println("i=" + i + ",j=" + j);
+        boolean isMatchAsterisk = j + 1 < p.length() && p.charAt(j + 1) == '*';
+        // 字符相同或者模版字符为任意匹配符号
+        if (s.charAt(i) == p.charAt(j) || p.charAt(j) == '.') {
+            if (isMatchAsterisk) {
+                // 下一个字符是'*'则表示匹配的次数是0次与多次
+                return dp(s, i, p, j + 2) || dp(s, i + 1, p, j);
+            } else {
+                return dp(s, i + 1, p, j + 1);
+            }
+        } else {
+            if (isMatchAsterisk) {
+                return dp(s, i, p, j + 2);
+            } else {
+                return false;
+            }
+        }
+    }
+
 
 }

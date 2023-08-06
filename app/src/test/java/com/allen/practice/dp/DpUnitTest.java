@@ -8,6 +8,7 @@ import com.allen.practice.dp.longest_comm_subseq.LongestCommSubsequence;
 import com.allen.practice.dp.max_sub_array.MaxSubArray;
 import com.allen.practice.dp.min_distance.MinDistance;
 import com.allen.practice.dp.min_insertions.MinInsertions;
+import com.allen.practice.dp.reg_exp.RegularExpression;
 
 import org.junit.Test;
 
@@ -100,6 +101,17 @@ public class DpUnitTest {
         String s = "abceafeeffe";
         int minInsertions = new MinInsertions().minInsertions(s);
         System.out.println("minInsertions=" + minInsertions);
+    }
+
+    @Test
+    public void runRegularExpression() {
+//        String s = "zaaab";
+//        String p = ".a*b";
+
+        String s = "aa";
+        String p = "a";
+        boolean isMatch = new RegularExpression().isMatch(s, p);
+        System.out.println("s=" + s + ",p=" + p + ",isMatch=" + isMatch);
     }
 
 
