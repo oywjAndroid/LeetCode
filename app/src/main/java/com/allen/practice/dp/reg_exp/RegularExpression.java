@@ -81,7 +81,7 @@ public class RegularExpression {
      *
      *
      * dp(i,j) => s[0...i] 和 p[0...j] 是否匹配成功
-     * 选择：模版字符串中的字符，其实分为两类：* 和 !*
+     * 选择：模版字符串中的字符，其实分为两类：* 和 !
      *
      */
     public boolean isMatch(String s, String p) {
