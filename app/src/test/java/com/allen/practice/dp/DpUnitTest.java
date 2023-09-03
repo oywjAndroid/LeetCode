@@ -1,5 +1,6 @@
 package com.allen.practice.dp;
 
+import com.allen.practice.dp.egg_drop.EggDrop;
 import com.allen.practice.dp.length_lis.LengthOfLIS01;
 import com.allen.practice.dp.length_lis.LengthOfLIS02;
 import com.allen.practice.dp.longest_palindrome_subseq.LongestPalindromeSubsequence;
@@ -112,6 +113,14 @@ public class DpUnitTest {
         String p = "a";
         boolean isMatch = new RegularExpression().isMatch(s, p);
         System.out.println("s=" + s + ",p=" + p + ",isMatch=" + isMatch);
+    }
+
+    @Test
+    public void runEggDrop() {
+        int k = 2;
+        int n = 100;
+        int minTryCount = new EggDrop().superEggDrop(k, n);
+        System.out.println("Min try count:" + minTryCount);
     }
 
 
