@@ -40,12 +40,7 @@ public class LongestPalindrome {
         System.out.println("leftStr=" + leftStr);
         String rightStr = dp(left + 1, right, s);
         System.out.println("rightStr=" + rightStr);
-
-        if (leftStr.length() >= rightStr.length()) {
-            return leftStr;
-        } else {
-            return rightStr;
-        }
+        return leftStr.length() >= rightStr.length() ? leftStr : rightStr;
     }
 
 
