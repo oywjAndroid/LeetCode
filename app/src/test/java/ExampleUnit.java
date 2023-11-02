@@ -33,5 +33,8 @@ public class ExampleUnit {
     @Test
     public void runExample002() {
         Example002 example002 = new Example002();
+
+        int coin_change_1 = example002.coinChange_1(new int[]{2,3}, 6);
+        System.out.println("coin_change_1=" + coin_change_1);
     }
 }
