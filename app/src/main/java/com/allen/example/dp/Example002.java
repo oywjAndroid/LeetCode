@@ -36,21 +36,28 @@ public class Example002 {
         // ...
         // 1,1,1,1,1,1,1,1
 
-        if (amount <= 0) {
-            return 0;
-        }
 
-        int minCount = Integer.MAX_VALUE;
-
+        int res = Integer.MAX_VALUE;
         for (int coin : coins) {
+            if (amount <= 0) {
+                return Integer.MAX_VALUE;
+            }
+
             if (amount == coin) {
                 return 1;
             }
-            minCount = Math.min(coinChange_1(coins, amount - coin) + 1, minCount);
-            System.out.println("amount=" + amount + ",minCount=" + minCount);
+
+            System.out.println("Enter coinChange_1,amount=" + amount + ",coin=" + coin + ",res=" + res);
+
+            int coin_change = coinChange_1(coins, amount - coin);
+            if (coin_change != Integer.MAX_VALUE) {
+                res = Math.min(res + 1, res);
+            }
+
+            System.out.println("Exit coinChange_1,amount=" + amount + ",coin=" + coin + ",res=" + res);
         }
 
-        return minCount == Integer.MAX_VALUE ? -1 : minCount;
+        return res == Integer.MAX_VALUE ? -1 : res;
     }
 
 }
