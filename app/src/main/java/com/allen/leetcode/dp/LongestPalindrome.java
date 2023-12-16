@@ -18,31 +18,35 @@ package com.allen.leetcode.dp;
  * s 仅由数字和英文字母组成
  */
 public class LongestPalindrome {
+    private String[][] dpTables;
 
     public String longestPalindrome(String s) {
-        return dp(0, s.length() - 1, s);
+        int N = s.length();
+        dpTables = new String[N][N];
+        return dp(0, N - 1, s);
     }
 
-    // babad
     private String dp(int left, int right, String s) {
+        if (dpTables[left][right] != null) {
+            return dpTables[left][right];
+        }
+
         if (isPalindromeStr(left, right, s)) {
             String subStr = s.substring(left, right + 1);
             System.out.println("Yes,[" + left + "," + right + "] = " + subStr);
             return subStr;
         }
 
-        if (left <= right) {
-            String subStr = s.substring(left, right + 1);
-            System.out.println("No,[" + left + "," + right + "] = " + subStr);
-        }
+        String lStr = dp(left, right - 1, s);
+        String rStr = dp(left + 1, right, s);
+        String result = lStr.length() >= rStr.length() ? lStr : rStr;
+        dpTables[left][right] = result;
+        System.out.println("Result=" + result + ",lStr=" + lStr + ",rStr=" + rStr);
 
-        String leftStr = dp(left, right - 1, s);
-        System.out.println("leftStr=" + leftStr);
-        String rightStr = dp(left + 1, right, s);
-        System.out.println("rightStr=" + rightStr);
-        return leftStr.length() >= rightStr.length() ? leftStr : rightStr;
+        System.out.println();
+
+        return result;
     }
-
 
     private boolean isPalindromeStr(int left, int right, String s) {
         char[] chars = s.toCharArray();

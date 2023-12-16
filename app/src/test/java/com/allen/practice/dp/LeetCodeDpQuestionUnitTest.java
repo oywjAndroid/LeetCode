@@ -17,7 +17,8 @@ public class LeetCodeDpQuestionUnitTest {
 
     @Test
     public void runLongestPalindrome() {
-        String inputStr = "babad";
+        //String inputStr = "babad";
+        String inputStr = "bbddaaabbaaaccff";
         String str = new LongestPalindrome().longestPalindrome(inputStr);
         System.out.println("str=" + str);
     }
