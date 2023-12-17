@@ -4,10 +4,12 @@ import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.allen.leetcode.R;
 import com.allen.views.FlexibleHorizontalScrollView;
@@ -16,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG = MainActivity.class.getSimpleName();
 
     private FlexibleHorizontalScrollView flexibleHorizontalScrollView;
 
@@ -32,14 +35,23 @@ public class MainActivity extends AppCompatActivity {
         list.add("第3个View");
         list.add("第4个View");
         list.add("第5个View");
+        list.add("第6个View");
         flexibleHorizontalScrollView.setAdapter(new MyAdapter(list));
     }
 
-    public void onClickScrollToChildView(View view){
-        flexibleHorizontalScrollView.scrollToPosition(3);
+    public void onClickScrollToChildView(View view) {
+        int firstVisiblePosition = flexibleHorizontalScrollView.getFirstVisiblePosition();
+        firstVisiblePosition++;
+
+        Log.i("TAG","firstVisiblePosition = "+firstVisiblePosition);
+        if (firstVisiblePosition >= flexibleHorizontalScrollView.getChildCount()) {
+            firstVisiblePosition = 0;
+        }
+        Toast.makeText(this,"position = "+firstVisiblePosition,Toast.LENGTH_SHORT).show();
+        flexibleHorizontalScrollView.scrollToPosition(firstVisiblePosition);
     }
 
-    public class MyAdapter extends FlexibleHorizontalScrollView.FlexibleAdapter<String>{
+    public class MyAdapter extends FlexibleHorizontalScrollView.FlexibleAdapter<String> {
 
         public MyAdapter(List<String> data) {
             super(data);

@@ -23,8 +23,8 @@ import java.util.List;
 public class FlexibleHorizontalScrollView extends HorizontalScrollView {
     private LinearLayout mParentView;
     private int mChildWidth;
-    private int mCurPosition = 0;
     private FlexibleAdapter<?> mAdapter;
+    private int mFirstVisiblePosition = 0;
 
     public FlexibleHorizontalScrollView(Context context) {
         super(context);
@@ -69,9 +69,9 @@ public class FlexibleHorizontalScrollView extends HorizontalScrollView {
         }
 
         position = Math.max(0, Math.min(position, mParentView.getChildCount() - 1));
-        mCurPosition = position;
         int scrollToX = position * mChildWidth;
-        smoothScrollTo(scrollToX, 0);
+        scrollTo(scrollToX, 0);
+        //mFirstVisiblePosition = getFirstVisiblePosition();
     }
 
     @Override
@@ -79,7 +79,11 @@ public class FlexibleHorizontalScrollView extends HorizontalScrollView {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
         // 计算子视图的平均宽度
-        mChildWidth = mParentView.getChildCount() == 1 ? getMeasuredWidth() : (getMeasuredWidth() / 3);
+        if (mParentView.getChildCount() == 1) {
+            mChildWidth = getMeasuredWidth() - getPaddingLeft() - getPaddingRight();
+        } else {
+            mChildWidth = (getMeasuredWidth() - getPaddingLeft() - getPaddingRight()) / 3;
+        }
 
         // 设置每个子视图的宽度
         for (int i = 0; i < mParentView.getChildCount(); i++) {
@@ -102,6 +106,24 @@ public class FlexibleHorizontalScrollView extends HorizontalScrollView {
         return isConsume;
     }
 
+    @Override
+    public void onScrollChanged(int l, int t, int oldl, int oldt) {
+        super.onScrollChanged(l, t, oldl, oldt);
+
+        // 当滚动位置发生变化时，更新第一个可见 childView 的 position
+        mFirstVisiblePosition = calcFirstVisiblePosition();
+    }
+
+    private int calcFirstVisiblePosition() {
+        int firstVisibleX = getScrollX() + getPaddingLeft();
+        return firstVisibleX / mChildWidth;
+    }
+
+
+    public int getFirstVisiblePosition() {
+        return mFirstVisiblePosition;
+    }
+
     private void updateViews() {
         mParentView.removeAllViews();
         for (int i = 0; i < mAdapter.getCount(); i++) {
@@ -116,15 +138,14 @@ public class FlexibleHorizontalScrollView extends HorizontalScrollView {
         int remainder = scrollX % mChildWidth;
 
         // 判断当前滚动位置是否超过 childView 宽度的一半
-        if (remainder > mChildWidth / 2) {
+        if (remainder > mChildWidth / 3) {
             newPosition += 1;
         }
 
         // 限制 newPosition 不超过子视图的数量
         newPosition = Math.max(0, Math.min(newPosition, mParentView.getChildCount() - 1));
-        mCurPosition = newPosition;
 
-        int scrollToX = mCurPosition * mChildWidth;
+        int scrollToX = newPosition * mChildWidth;
         smoothScrollTo(scrollToX, 0);
     }
 
